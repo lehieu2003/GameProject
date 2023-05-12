@@ -104,7 +104,7 @@ public class Animation {
     public void add(FrameImage frameImage, double timeToNextFrame){
         ignoreFrames.add(false);
         frameImages.add(frameImage);
-        delayFrames.add(new Double(timeToNextFrame));
+        delayFrames.add(new Double(timeToNextFrame)); // not errror
     }
 
     public void setDrawRectFrame(boolean b){

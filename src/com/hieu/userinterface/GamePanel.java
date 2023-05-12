@@ -17,15 +17,15 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private InputManager inputManager;
     FrameImage frame1, frame2, frame3;
     Animation animation;
-//    BufferedImage image;// 1 doi tuong chua hinh anh
+//    BufferedImage image;//  ( an object contains picture )
 //    BufferedImage subImage;
     public GamePanel() {
         inputManager = new InputManager();
 //        try {
-//            image = ImageIO.read(new File("data/megasprite.png"));// ham lay hinh anh tu file
-//            subImage = image.getSubimage(2,5,30,100);//tra ve 1 image theo y cua designer
+//            image = ImageIO.read(new File("data/megasprite.png"));// the funtion to return picture from file
+//            subImage = image.getSubimage(2,5,30,100);// return to 1 image theo y cua designer
 //        }catch (Exception e){
-//            e.printStackTrace(); // try catch de tra ve 1 ngoai le phong khi file megasprite ko ton tai no se tra ve 1 cai j do
+//            e.printStackTrace(); // try catch de tra ve 1 ngoai le phong khi file megasprite ko ton tai no se tra ve 1 cai j do ( return an exception if file does not exist)
 //        }
         try {
             BufferedImage image = ImageIO.read(new File("data/megasprite.png"));
@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             animation.add(frame2,200*1000000);
             animation.add(frame3,200*1000000);
         }catch (Exception e){
-            e.printStackTrace(); // try catch de tra ve 1 ngoai le phong khi file megasprite ko ton tai no se tra ve 1 cai j do
+            e.printStackTrace(); // try catch to return an exception if file megasprite dose not exist and it will return error statement
         }
     }
     @Override
@@ -71,7 +71,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         // time to sleep = T - time ( update and render )
         long sleepTime;
 
-        int a = 1;
+        int a = 1; // test 
 
         beginTime = System.nanoTime(); // get System time ( real time ) and change to nano time
         while (isRunning){

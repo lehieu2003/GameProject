@@ -11,6 +11,7 @@ public class FrameImage {
         this.image = image;
     }
     // tao 1 doi tuong copy giong doi tuong cu nhung khac tham so truyen vao
+    // creat a copy constructor but differenct refferenced-parameter  
     public FrameImage(FrameImage frameImage){
         image = new BufferedImage(frameImage.getImageWidth(),frameImage.getImageHeight(),frameImage.getImage().getType());
         Graphics g = image.getGraphics();
