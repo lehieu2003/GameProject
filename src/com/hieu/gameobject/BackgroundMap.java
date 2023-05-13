@@ -1,8 +1,8 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
-import com.gamestudio.effect.CacheDataLoader;
-import com.gamestudio.userinterface.GameFrame;
+import com.hieu.state.GameWorldState;
+import com.hieu.effect.CacheDataLoader;
+import com.hieu.userinterface.GameFrame;
 import java.awt.Color;
 import java.awt.Graphics2D;
 

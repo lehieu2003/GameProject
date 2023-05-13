@@ -1,6 +1,6 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
+import com.hieu.state.GameWorldState;
 import java.awt.Graphics2D;
 
 public abstract class Bullet extends ParticularObject {

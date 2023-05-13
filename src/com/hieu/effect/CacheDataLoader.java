@@ -1,30 +1,52 @@
 package com.hieu.effect;
 
 import javax.imageio.ImageIO;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import java.applet.Applet;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Hashtable;
 
 public class CacheDataLoader { // follow Design pattern singleton style to avoid creating many instance for cache data
-    private static CacheDataLoader instance = null;
+    // the purpose of this class is to create only one instance
+    private static CacheDataLoader instance = null; 
     private String frameFile = "data/frame.txt";
     private String animationFile = "data/animation.txt";
+    private String physmapfile = "data/phys_map.txt";
+    private String backgroundmapfile = "data/background_map.txt";
+    private String soundFile = "data/sounds.txt";
+
     private Hashtable<String, FrameImage> frameImages;
     private Hashtable<String,Animation> animations;
+    private Hashtable<String, Clip> sounds;
 
-    public CacheDataLoader(){
+    private int[][] phys_map;
+    private int[][] background_map;
+
+    private CacheDataLoader(){
 
     }
     public static CacheDataLoader getInstance(){
         // each time call this function only get an instance
-        if (instance == null){
-            instance = new CacheDataLoader();
+        synchronized(CharArrayReader.class){ 
+            if (instance == null){
+                instance = new CacheDataLoader();
+            }
+            return instance;
         }
-        return instance;
     }
     public void LoadData() throws IOException{
         LoadFrame();
         LoadAnimation();
+        LoadPhysMap();
+        LoadBackgroundMap();
+        LoadSounds();
+
     }
     public void LoadFrame() throws IOException{
         frameImages = new Hashtable<String,FrameImage>();
@@ -120,8 +142,133 @@ public class CacheDataLoader { // follow Design pattern singleton style to avoid
             }
         }
     }
+
     public Animation getAnimation(String name){
         Animation animation = new Animation(instance.animations.get(name));
         return animation;
+    }
+
+    public void LoadSounds() throws IOException{
+        sounds = new Hashtable<String, Clip>();
+        
+        FileReader fr = new FileReader(soundFile);
+        BufferedReader br = new BufferedReader(fr);
+        
+        String line = null;
+        
+        if(br.readLine()==null) { // no line = "" or something like that
+            System.out.println("No data");
+            throw new IOException();
+        }
+        else {
+            
+            fr = new FileReader(soundFile);
+            br = new BufferedReader(fr);
+            
+            while((line = br.readLine()).equals(""));
+            
+            int n = Integer.parseInt(line);
+            
+            for(int i = 0;i < n; i ++){
+                
+                Clip audioClip = null;
+                while((line = br.readLine()).equals(""));
+
+                String[] str = line.split(" ");
+                String name = str[0];
+                
+                String path = str[1];
+
+                try {
+                //    audioClip =  Applet.newAudioClip(new URL("file","",str[1]));
+                    URL url = new URl("file","",str[1]);
+                    audioClip = 
+                } catch (MalformedURLException ex) {}
+                
+                instance.sounds.put(name, audioClip);
+            }
+            
+        }
+        
+        br.close();
+        
+    }
+    public Clip getSound(String name){
+        return instance.sounds.get(name);
+    }
+    public void LoadBackgroundMap() throws IOException{
+        
+        FileReader fr = new FileReader(backgroundmapfile);
+        BufferedReader br = new BufferedReader(fr);
+        
+        String line = null;
+        
+        line = br.readLine();
+        int numberOfRows = Integer.parseInt(line);
+        line = br.readLine();
+        int numberOfColumns = Integer.parseInt(line);
+            
+        
+        instance.background_map = new int[numberOfRows][numberOfColumns];
+        
+        for(int i = 0;i < numberOfRows;i++){
+            line = br.readLine();
+            String [] str = line.split(" |  ");
+            for(int j = 0;j<numberOfColumns;j++)
+                instance.background_map[i][j] = Integer.parseInt(str[j]);
+        }
+        
+        for(int i = 0;i < numberOfRows;i++){
+            
+            for(int j = 0;j<numberOfColumns;j++)
+                System.out.print(" "+instance.background_map[i][j]);
+            
+            System.out.println();
+        }
+        
+        br.close();
+        
+    }
+
+    
+    public void LoadPhysMap() throws IOException{
+        
+        FileReader fr = new FileReader(physmapfile);
+        BufferedReader br = new BufferedReader(fr);
+        
+        String line = null;
+        
+        line = br.readLine();
+        int numberOfRows = Integer.parseInt(line);
+        line = br.readLine();
+        int numberOfColumns = Integer.parseInt(line);
+            
+        
+        instance.phys_map = new int[numberOfRows][numberOfColumns];
+        
+        for(int i = 0;i < numberOfRows;i++){
+            line = br.readLine();
+            String [] str = line.split(" ");
+            for(int j = 0;j<numberOfColumns;j++)
+                instance.phys_map[i][j] = Integer.parseInt(str[j]);
+        }
+        
+        for(int i = 0;i < numberOfRows;i++){
+            
+            for(int j = 0;j<numberOfColumns;j++)
+                System.out.print(" "+instance.phys_map[i][j]);
+            
+            System.out.println();
+        }
+        
+        br.close();
+        
+    }
+    public int[][] getPhysicalMap(){
+        return instance.phys_map;
+    }
+    
+    public int[][] getBackgroundMap(){
+        return instance.background_map;
     }
 }

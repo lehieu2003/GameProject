@@ -1,13 +1,13 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
+import com.hieu.state.GameWorldState;
 import java.awt.Graphics2D;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ParticularObjectManager {
-
+    
     protected List<ParticularObject> particularObjects;
 
     private GameWorldState gameWorld;

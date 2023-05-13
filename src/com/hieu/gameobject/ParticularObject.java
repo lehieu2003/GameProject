@@ -1,7 +1,7 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
-import com.gamestudio.effect.Animation;
+import com.hieu.state.GameWorldState;
+import com.hieu.effect.Animation;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

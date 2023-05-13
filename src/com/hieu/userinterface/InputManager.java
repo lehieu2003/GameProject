@@ -1,39 +1,24 @@
 package com.hieu.userinterface;
-import java.awt.event.KeyEvent;
+
+import com.hieu.state.State;
 
 public class InputManager  {
-    // enter keyboard
-    public void processKeyPressed(int keyCode){
-        switch (keyCode){
-            case KeyEvent.VK_UP:
-                break;
-            case KeyEvent.VK_DOWN:
-=                break;
-            case KeyEvent.VK_LEFT:
-                break;
-            case KeyEvent.VK_RIGHT:
-                break;
-            case KeyEvent.VK_ENTER:
-                break;
-            case KeyEvent.VK_A:
-                break;
-        }
+    private State gameState;
+
+    public InputManager(State state){
+        this.gameState = state;
     }
-    // release keyboard
-    public void processKeyReleased(int keyCode) {
-        switch (keyCode) {
-            case KeyEvent.VK_UP:
-                break;
-            case KeyEvent.VK_DOWN:
-                break;
-            case KeyEvent.VK_LEFT:
-                break;
-            case KeyEvent.VK_RIGHT:
-                break;
-            case KeyEvent.VK_ENTER:
-                break;
-            case KeyEvent.VK_A:
-                break;
-        }
+    
+    public void setState(State state) {
+        gameState = state;
     }
+    
+    public void setPressedButton(int code){
+        gameState.setPressedButton(code);
+    }
+    
+    public void setReleasedButton(int code){
+        gameState.setReleasedButton(code);
+    }
+    
 }

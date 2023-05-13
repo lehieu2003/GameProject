@@ -1,11 +1,12 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
-import com.gamestudio.effect.Animation;
-import com.gamestudio.effect.CacheDataLoader;
-import java.applet.AudioClip;
+import com.hieu.state.GameWorldState;
+import com.hieu.effect.Animation;
+import com.hieu.effect.CacheDataLoader;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+
+import javax.sound.sampled.Clip;
 
 public class MegaMan extends Human {
 
@@ -18,13 +19,13 @@ public class MegaMan extends Human {
     private Animation flyForwardAnim, flyBackAnim, flyShootingForwardAnim, flyShootingBackAnim;
     private Animation landingForwardAnim, landingBackAnim;
     
-    private Animation climWallForward, climWallBack;
+    private Animation climbWallForward, climbWallBack;
     
     private long lastShootingTime;
     private boolean isShooting = false;
     
-    private AudioClip hurtingSound;
-    private AudioClip shooting1;
+    private Clip hurtingSound;
+    private Clip shooting1;
     
     /* declare nhan vat */
     public MegaMan(float x, float y, GameWorldState gameWorld) {
@@ -59,9 +60,9 @@ public class MegaMan extends Human {
         landingBackAnim = CacheDataLoader.getInstance().getAnimation("landing");
         landingBackAnim.flipAllImage();
         
-        climWallBack = CacheDataLoader.getInstance().getAnimation("clim_wall");
-        climWallForward = CacheDataLoader.getInstance().getAnimation("clim_wall");
-        climWallForward.flipAllImage();
+        climbWallBack = CacheDataLoader.getInstance().getAnimation("clim_wall");
+        climbWallForward = CacheDataLoader.getInstance().getAnimation("clim_wall");
+        climbWallForward.flipAllImage();
         
         behurtForwardAnim = CacheDataLoader.getInstance().getAnimation("hurting");
         behurtBackAnim = CacheDataLoader.getInstance().getAnimation("hurting");

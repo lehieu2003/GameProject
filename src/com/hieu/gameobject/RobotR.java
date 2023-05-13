@@ -1,10 +1,10 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
-import com.gamestudio.effect.Animation;
-import com.gamestudio.effect.CacheDataLoader;
-import static com.gamestudio.gameobject.ParticularObject.LEFT_DIR;
-import static com.gamestudio.gameobject.ParticularObject.NOBEHURT;
+import com.hieu.state.GameWorldState;
+import com.hieu.effect.Animation;
+import com.hieu.effect.CacheDataLoader;
+import static com.hieu.gameobject.ParticularObject.LEFT_DIR;
+import static com.hieu.gameobject.ParticularObject.NOBEHURT;
 import java.applet.AudioClip;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

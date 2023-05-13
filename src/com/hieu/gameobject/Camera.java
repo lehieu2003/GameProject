@@ -1,6 +1,6 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
+import com.hieu.state.GameWorldState;
 
 public class Camera extends GameObject {
 

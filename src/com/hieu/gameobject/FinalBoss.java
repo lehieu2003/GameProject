@@ -1,8 +1,8 @@
-package com.gamestudio.gameobject;
+package com.hieu.gameobject;
 
-import com.gamestudio.state.GameWorldState;
-import com.gamestudio.effect.Animation;
-import com.gamestudio.effect.CacheDataLoader;
+import com.hieu.state.GameWorldState;
+import com.hieu.effect.Animation;
+import com.hieu.effect.CacheDataLoader;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Hashtable;
@@ -42,9 +42,9 @@ public class FinalBoss extends Human {
         attackType[2] = "NONE";
         attackType[3] = "slide";
         
-        timeAttack.put("NONE", new Long(2000));
-        timeAttack.put("shooting", new Long(500));
-        timeAttack.put("slide", new Long(5000));
+        timeAttack.put("NONE",Long.valueOf(2000));
+        timeAttack.put("shooting", Long.valueOf(500));
+        timeAttack.put("slide", Long.valueOf(5000));
         
     }
 
