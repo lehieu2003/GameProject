@@ -2,50 +2,54 @@ package com.hieu.effect;
 
 import javax.imageio.ImageIO;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+// import javax.sound.sampled.AudioSystem;
+// import javax.sound.sampled.Clip;
 
-import java.applet.Applet;
+// import java.applet.Applet;
+// import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+// import java.net.MalformedURLException;
+// import java.net.URL;
 import java.util.Hashtable;
 
 public class CacheDataLoader { // follow Design pattern singleton style to avoid creating many instance for cache data
-    // the purpose of this class is to create only one instance
-    private static CacheDataLoader instance = null; 
+    private static volatile CacheDataLoader instance = null; 
     private String frameFile = "data/frame.txt";
     private String animationFile = "data/animation.txt";
     private String physmapfile = "data/phys_map.txt";
     private String backgroundmapfile = "data/background_map.txt";
-    private String soundFile = "data/sounds.txt";
+    // private String soundFile = "data/sounds.txt";
 
     private Hashtable<String, FrameImage> frameImages;
     private Hashtable<String,Animation> animations;
-    private Hashtable<String, Clip> sounds;
+    // private Hashtable<String, Clip> sounds;
 
     private int[][] phys_map;
     private int[][] background_map;
 
-    private CacheDataLoader(){
+    private CacheDataLoader(){ // constructor must be private 
 
     }
     public static CacheDataLoader getInstance(){
         // each time call this function only get an instance
-        synchronized(CharArrayReader.class){ 
-            if (instance == null){
-                instance = new CacheDataLoader();
+        CacheDataLoader result = instance;
+        if(result == null){
+            synchronized(CacheDataLoader.class){
+                result = instance; 
+                if (result == null){
+                    instance = result = new CacheDataLoader();
+                }
             }
-            return instance;
         }
+        return result; 
     }
     public void LoadData() throws IOException{
         LoadFrame();
         LoadAnimation();
         LoadPhysMap();
         LoadBackgroundMap();
-        LoadSounds();
+        // LoadSounds();
 
     }
     public void LoadFrame() throws IOException{
@@ -79,19 +83,47 @@ public class CacheDataLoader { // follow Design pattern singleton style to avoid
 
                 while ((line = br.readLine()).equals(""));
                 str = line.split(" "); // characters separated by " " will be added to the array
-                int x = Integer.parseInt(str[1]);
+                int x;
+                if (!str[1].isEmpty()) {
+                    x = Integer.parseInt(str[1]);
+                } else {
+                    // handle empty string here
+                    x = 0;
+                }
+                // int x = Integer.parseInt(str[1]);
 
                 while ((line = br.readLine()).equals(""));
                 str = line.split(" "); // characters separated by " " will be added to the array 
-                int y = Integer.parseInt(str[1]);
+                int y;
+                if (!str[1].isEmpty()) {
+                    y = Integer.parseInt(str[1]);
+                } else {
+                    // handle empty string here
+                    y = 0;
+                }
+                // int y = Integer.parseInt(str[1]);
 
                 while ((line = br.readLine()).equals(""));
                 str = line.split(" "); // characters separated by " " will be added to the array
-                int w = Integer.parseInt(str[1]);
+                int w;
+                if (!str[1].isEmpty()) {
+                    w = Integer.parseInt(str[1]);
+                } else {
+                    // handle empty string here
+                    w = 0;
+                }
+                // int w = Integer.parseInt(str[1]);
 
                 while ((line = br.readLine()).equals(""));
                 str = line.split(" "); // characters separated by " " will be added to the array
-                int h = Integer.parseInt(str[1]);
+                int h;
+                if (!str[1].isEmpty()) {
+                    h = Integer.parseInt(str[1]);
+                } else {
+                    // handle empty string here
+                    h = 0;
+                }
+                // int h = Integer.parseInt(str[1]);
 
                 BufferedImage imageData = ImageIO.read(new File(path));
                 BufferedImage image = imageData.getSubimage(x,y,w,h);
@@ -148,54 +180,53 @@ public class CacheDataLoader { // follow Design pattern singleton style to avoid
         return animation;
     }
 
-    public void LoadSounds() throws IOException{
-        sounds = new Hashtable<String, Clip>();
+    // public void LoadSounds() throws IOException{
+    //     sounds = new Hashtable<String, Clip>();
         
-        FileReader fr = new FileReader(soundFile);
-        BufferedReader br = new BufferedReader(fr);
+    //     FileReader fr = new FileReader(soundFile);
+    //     BufferedReader br = new BufferedReader(fr);
         
-        String line = null;
+    //     String line = null;
         
-        if(br.readLine()==null) { // no line = "" or something like that
-            System.out.println("No data");
-            throw new IOException();
-        }
-        else {
+    //     if(br.readLine()==null) { // no line = "" or something like that
+    //         System.out.println("No data");
+    //         throw new IOException();
+    //     }
+    //     else {
             
-            fr = new FileReader(soundFile);
-            br = new BufferedReader(fr);
+    //         fr = new FileReader(soundFile);
+    //         br = new BufferedReader(fr);
             
-            while((line = br.readLine()).equals(""));
+    //         while((line = br.readLine()).equals(""));
             
-            int n = Integer.parseInt(line);
+    //         int n = Integer.parseInt(line);
             
-            for(int i = 0;i < n; i ++){
+    //         for(int i = 0;i < n; i ++){
                 
-                Clip audioClip = null;
-                while((line = br.readLine()).equals(""));
+    //             AudioClip audioClip = null;
+    //             while((line = br.readLine()).equals(""));
 
-                String[] str = line.split(" ");
-                String name = str[0];
+    //             String[] str = line.split(" ");
+    //             String name = str[0];
                 
-                String path = str[1];
+    //             String path = str[1];
 
-                try {
-                //    audioClip =  Applet.newAudioClip(new URL("file","",str[1]));
-                    URL url = new URl("file","",str[1]);
-                    audioClip = 
-                } catch (MalformedURLException ex) {}
-                
-                instance.sounds.put(name, audioClip);
-            }
+    //             try {
+    //                 audioClip =  Applet.newAudioClip(new URL("file","",str[1]));
+ 
+    //              } catch (MalformedURLException ex) {}
+                 
+    //              instance.sounds.put(name, audioClip);
+    //         }
             
-        }
+    //     }
         
-        br.close();
+    //     br.close();
         
-    }
-    public Clip getSound(String name){
-        return instance.sounds.get(name);
-    }
+    // }
+    // public Clip getSound(String name){
+    //     return instance.sounds.get(name);
+    // }
     public void LoadBackgroundMap() throws IOException{
         
         FileReader fr = new FileReader(backgroundmapfile);

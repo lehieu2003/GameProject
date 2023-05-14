@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hieu.state;
 
 import com.hieu.userinterface.GamePanel;
 import java.awt.image.BufferedImage;
-
-/**
- *
- * @author phamn
- */
 public abstract class State {
     
     protected GamePanel gamePanel;

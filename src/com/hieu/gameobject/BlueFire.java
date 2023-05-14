@@ -20,7 +20,7 @@ public class BlueFire extends Bullet{
     
     
     @Override
-    public Rectangle getBoundForCollisionWithEnemy() {
+    public Rectangle getBoundForCollisionWithEnemy() { // return collision zone of character
         // TODO Auto-generated method stub
         return getBoundForCollisionWithMap();
     }

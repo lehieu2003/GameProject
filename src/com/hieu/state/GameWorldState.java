@@ -16,7 +16,7 @@ import com.hieu.gameobject.RobotR;
 import com.hieu.gameobject.SmallRedGun;
 import com.hieu.userinterface.GameFrame;
 import com.hieu.userinterface.GamePanel;
-import java.applet.AudioClip;
+// import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -68,7 +68,7 @@ public class GameWorldState extends State {
     
     private int numberOfLife = 3;
     
-    public AudioClip bgMusic;
+    // public AudioClip bgMusic;
     
     public GameWorldState(GamePanel gamePanel){
             super(gamePanel);
@@ -93,7 +93,7 @@ public class GameWorldState extends State {
         
         initEnemies();
 
-        bgMusic = CacheDataLoader.getInstance().getSound("bgmusic");
+        // bgMusic = CacheDataLoader.getInstance().getSound("bgmusic");
         
     }
     
@@ -295,7 +295,7 @@ public class GameWorldState extends State {
                         particularObjectManager.addObject(megaMan);
                     }else{
                         switchState(GAMEOVER);
-                        bgMusic.stop();
+                        // bgMusic.stop();
                     }
                 }
                 if(!finalbossTrigger && boss.getState() == ParticularObject.DEATH)
@@ -411,7 +411,7 @@ public class GameWorldState extends State {
                         switchState(GameWorldState.GAMEPLAY);
                     else switchState(GameWorldState.TUTORIAL);
                     
-                    bgMusic.loop();
+                    // bgMusic.loop();
                 }
                 if(state == GameWorldState.TUTORIAL && storyTutorial >= 1){
                     if(storyTutorial<=3){

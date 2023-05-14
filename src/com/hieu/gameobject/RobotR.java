@@ -3,9 +3,9 @@ package com.hieu.gameobject;
 import com.hieu.state.GameWorldState;
 import com.hieu.effect.Animation;
 import com.hieu.effect.CacheDataLoader;
-import static com.hieu.gameobject.ParticularObject.LEFT_DIR;
-import static com.hieu.gameobject.ParticularObject.NOBEHURT;
-import java.applet.AudioClip;
+// import static com.hieu.gameobject.ParticularObject.LEFT_DIR;
+// import static com.hieu.gameobject.ParticularObject.NOBEHURT;
+// import java.applet.AudioClip;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -16,7 +16,7 @@ public class RobotR extends ParticularObject {
     private long startTimeToShoot;
     private float x1, x2, y1, y2;
     
-    private AudioClip shooting;
+    // private AudioClip shooting;
     
     public RobotR(float x, float y, GameWorldState gameWorld) {
         super(x, y, 127, 89, 0, 100, gameWorld);
@@ -35,13 +35,13 @@ public class RobotR extends ParticularObject {
         setSpeedX(1);
         setSpeedY(1);
         
-        shooting = CacheDataLoader.getInstance().getSound("robotRshooting");
+        // shooting = CacheDataLoader.getInstance().getSound("robotRshooting");
     }
 
     @Override
     public void attack() {  
         
-        shooting.play();
+        // shooting.play();
         Bullet bullet = new RobotRBullet(getPosX(), getPosY(), getGameWorld());
         
         if(getDirection()==LEFT_DIR)

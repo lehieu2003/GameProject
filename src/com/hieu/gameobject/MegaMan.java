@@ -3,10 +3,10 @@ package com.hieu.gameobject;
 import com.hieu.state.GameWorldState;
 import com.hieu.effect.Animation;
 import com.hieu.effect.CacheDataLoader;
+
+// import java.applet.AudioClip;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-
-import javax.sound.sampled.Clip;
 
 public class MegaMan extends Human {
 
@@ -24,15 +24,15 @@ public class MegaMan extends Human {
     private long lastShootingTime;
     private boolean isShooting = false;
     
-    private Clip hurtingSound;
-    private Clip shooting1;
+    // private AudioClip hurtingSound;
+    // private AudioClip shooting1;
     
-    /* declare nhan vat */
+    /* declare character */
     public MegaMan(float x, float y, GameWorldState gameWorld) {
         super(x, y, 70, 90, 0.1f, 100, gameWorld);
         
-        shooting1 = CacheDataLoader.getInstance().getSound("bluefireshooting");
-        hurtingSound = CacheDataLoader.getInstance().getSound("megamanhurt");
+        // shooting1 = CacheDataLoader.getInstance().getSound("bluefireshooting");
+        // hurtingSound = CacheDataLoader.getInstance().getSound("megamanhurt");
         
         setTeamType(LEAGUE_TEAM);
 
@@ -310,9 +310,9 @@ public class MegaMan extends Human {
     @Override
     public void attack() {
     
-        if(!isShooting && !getIsDicking()){
-            
-            shooting1.play();
+        // if(!isShooting && !getIsDicking()){
+        if(!getIsDicking()){
+            // shooting1.play();
             
             Bullet bullet = new BlueFire(getPosX(), getPosY(), getGameWorld());
             if(getDirection() == LEFT_DIR) {
@@ -345,7 +345,7 @@ public class MegaMan extends Human {
     @Override
     public void hurtingCallback(){
         System.out.println("Call back hurting");
-        hurtingSound.play();
+        // hurtingSound.play();
     }
 
 }

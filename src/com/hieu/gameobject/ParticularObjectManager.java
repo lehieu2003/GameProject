@@ -15,6 +15,7 @@ public class ParticularObjectManager {
     public ParticularObjectManager(GameWorldState gameWorld){
         
         particularObjects = Collections.synchronizedList(new LinkedList<ParticularObject>());
+         // use synchronized to avoid conflict thread because LinkedList have many thread to access if we are not synchronized lead to conflict thread
         this.gameWorld = gameWorld;
         
     }

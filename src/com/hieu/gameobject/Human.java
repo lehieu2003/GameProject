@@ -55,7 +55,8 @@ public abstract class Human extends ParticularObject{
         super.Update();
         
         if(getState() == ALIVE || getState() == NOBEHURT){
-        
+
+            //check the state of character
             if(!isLanding){
 
                 setPosX(getPosX() + getSpeedX());
@@ -63,17 +64,18 @@ public abstract class Human extends ParticularObject{
 
                 if(getDirection() == LEFT_DIR && 
                         getGameWorld().physicalMap.haveCollisionWithLeftWall(getBoundForCollisionWithMap())!=null){
-
+                // if character collides with left-wall, we return new position of character
                     Rectangle rectLeftWall = getGameWorld().physicalMap.haveCollisionWithLeftWall(getBoundForCollisionWithMap());
                     setPosX(rectLeftWall.x + rectLeftWall.width + getWidth()/2);
+                    // + getWidth()/2 : get the center position of character
 
                 }
                 if(getDirection() == RIGHT_DIR && 
                         getGameWorld().physicalMap.haveCollisionWithRightWall(getBoundForCollisionWithMap())!=null){
-
+                    // if character collides with left-wall, we return new position of character
                     Rectangle rectRightWall = getGameWorld().physicalMap.haveCollisionWithRightWall(getBoundForCollisionWithMap());
                     setPosX(rectRightWall.x - getWidth()/2);
-
+                    // - getWidth()/2 : get the center position of character
                 }
 
 
@@ -85,14 +87,14 @@ public abstract class Human extends ParticularObject{
 
                 Rectangle boundForCollisionWithMapFuture = getBoundForCollisionWithMap();
                 boundForCollisionWithMapFuture.y += (getSpeedY()!=0?getSpeedY(): 2);
+                // in the case, character collides with land
                 Rectangle rectLand = getGameWorld().physicalMap.haveCollisionWithLand(boundForCollisionWithMapFuture);
-                
+                // in the case, character collides with wall while he is flying
                 Rectangle rectTop = getGameWorld().physicalMap.haveCollisionWithTop(boundForCollisionWithMapFuture);
                 
-                if(rectTop !=null){
-                    
-                    setSpeedY(0);
-                    setPosY(rectTop.y + getGameWorld().physicalMap.getTileSize() + getHeight()/2);
+                if(rectTop !=null){ // check if  # null, character collides with ceiling
+                    setSpeedY(0); // set v = 0
+                    setPosY(rectTop.y + getGameWorld().physicalMap.getTileSize() + getHeight()/2); // set position y
                     
                 }else if(rectLand != null){
                     setIsJumping(false);

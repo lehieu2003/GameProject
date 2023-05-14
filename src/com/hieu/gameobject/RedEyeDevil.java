@@ -3,7 +3,7 @@ package com.hieu.gameobject;
 import com.hieu.state.GameWorldState;
 import com.hieu.effect.Animation;
 import com.hieu.effect.CacheDataLoader;
-import java.applet.AudioClip;
+// import java.applet.AudioClip;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -13,7 +13,7 @@ public class RedEyeDevil extends ParticularObject {
     
     private long startTimeToShoot;
     
-    private AudioClip shooting;
+    // private AudioClip shooting;
     
     public RedEyeDevil(float x, float y, GameWorldState gameWorld) {
         super(x, y, 127, 89, 0, 100, gameWorld);
@@ -23,13 +23,13 @@ public class RedEyeDevil extends ParticularObject {
         startTimeToShoot = 0;
         setDamage(10);
         setTimeForNoBehurt(300000000);
-        shooting = CacheDataLoader.getInstance().getSound("redeyeshooting");
+        // shooting = CacheDataLoader.getInstance().getSound("redeyeshooting");
     }
 
     @Override
     public void attack() {
     
-        shooting.play();
+        // shooting.play();
         Bullet bullet = new RedEyeBullet(getPosX(), getPosY(), getGameWorld());
         if(getDirection() == LEFT_DIR) bullet.setSpeedX(-8);
         else bullet.setSpeedX(8);
