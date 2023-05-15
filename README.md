@@ -19,7 +19,7 @@ Mega Man is controlled using the keyboard. The default controls are:
 
 ## Installation
 
-To play Mega Man, clone game from github.\
+To play Mega Man, clone game from github.
 
 
 ## System Requirements:
