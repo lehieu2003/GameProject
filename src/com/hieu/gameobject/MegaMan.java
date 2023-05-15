@@ -310,9 +310,7 @@ public class MegaMan extends Human {
     @Override
     public void attack() {
     
-        // if(!isShooting && !getIsDicking()){
-        if(!getIsDicking()){
-            // shooting1.play();
+        if(!isShooting && !getIsDicking()){
             
             Bullet bullet = new BlueFire(getPosX(), getPosY(), getGameWorld());
             if(getDirection() == LEFT_DIR) {
@@ -345,7 +343,6 @@ public class MegaMan extends Human {
     @Override
     public void hurtingCallback(){
         System.out.println("Call back hurting");
-        // hurtingSound.play();
     }
 
 }

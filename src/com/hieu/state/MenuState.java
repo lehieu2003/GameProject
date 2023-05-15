@@ -8,11 +8,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
-/**
- *
- * @author phamn
- */
 public class MenuState extends State {
     
     public final int NUMBER_OF_BUTTON = 2;
@@ -30,12 +25,7 @@ public class MenuState extends State {
         buttons[0] = new RectangleButton("NEW GAME", 300, 100, 100, 40, 15, 25, Color.ORANGE);
 		buttons[0].setHoverBgColor(Color.BLUE);
 		buttons[0].setPressedBgColor(Color.GREEN);
-
-//		buttons[1] = new RectangleButton("CONTINUE", 300, 160, 100, 40, 15, 25, Color.ORANGE);
-//		buttons[1].setHoverBgColor(Color.BLUE);
-//		buttons[1].setPressedBgColor(Color.GREEN);
 		
-
 		buttons[1] = new RectangleButton("EXIT", 300, 160, 100, 40, 15, 25, Color.ORANGE);
 		buttons[1].setHoverBgColor(Color.BLUE);
 		buttons[1].setPressedBgColor(Color.GREEN);

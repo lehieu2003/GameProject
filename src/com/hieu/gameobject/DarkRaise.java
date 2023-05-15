@@ -97,7 +97,6 @@ public class DarkRaise extends ParticularObject{
                 }
             }
         }
-        //drawBoundForCollisionWithEnemy(g2);
     }
     
 }

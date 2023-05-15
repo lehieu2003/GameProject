@@ -16,7 +16,6 @@ import com.hieu.gameobject.RobotR;
 import com.hieu.gameobject.SmallRedGun;
 import com.hieu.userinterface.GameFrame;
 import com.hieu.userinterface.GamePanel;
-// import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -67,9 +66,7 @@ public class GameWorldState extends State {
     
     
     private int numberOfLife = 3;
-    
-    // public AudioClip bgMusic;
-    
+        
     public GameWorldState(GamePanel gamePanel){
             super(gamePanel);
         
@@ -92,8 +89,6 @@ public class GameWorldState extends State {
         particularObjectManager.addObject(megaMan);
         
         initEnemies();
-
-        // bgMusic = CacheDataLoader.getInstance().getSound("bgmusic");
         
     }
     
@@ -319,14 +314,6 @@ public class GameWorldState extends State {
 
         if(g2!=null){
 
-            // NOTE: two lines below make the error splash white screen....
-            // need to remove this line
-            //g2.setColor(Color.WHITE);
-            //g2.fillRect(0, 0, GameFrame.SCREEN_WIDTH, GameFrame.SCREEN_HEIGHT);
-            
-            
-            //physicalMap.draw(g2);
-            
             switch(state){
                 case INIT_GAME:
                     g2.setColor(Color.BLACK);
@@ -375,10 +362,7 @@ public class GameWorldState extends State {
                     g2.setColor(Color.WHITE);
                     g2.drawString("GAME OVER!", 450, 300);
                     break;
-
             }
-            
-
         }
 
     }
@@ -409,9 +393,7 @@ public class GameWorldState extends State {
                 if(state == GameWorldState.INIT_GAME){
                     if(previousState == GameWorldState.GAMEPLAY)
                         switchState(GameWorldState.GAMEPLAY);
-                    else switchState(GameWorldState.TUTORIAL);
-                    
-                    // bgMusic.loop();
+                    else switchState(GameWorldState.TUTORIAL);        
                 }
                 if(state == GameWorldState.TUTORIAL && storyTutorial >= 1){
                     if(storyTutorial<=3){
@@ -481,6 +463,7 @@ public class GameWorldState extends State {
                 state = PAUSEGAME;
                 break;
                 
-        }}
+        }
+    }
 	
 }

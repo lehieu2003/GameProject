@@ -75,10 +75,7 @@ public class ParticularObjectManager {
                     particularObjects.remove(id);
                 }
             }
-        }
-
-        //System.out.println("Camerawidth  = "+camera.getWidth());
-        
+        }        
     }
     
     public void draw(Graphics2D g2){

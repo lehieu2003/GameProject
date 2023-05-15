@@ -3,9 +3,6 @@ package com.hieu.gameobject;
 import com.hieu.state.GameWorldState;
 import com.hieu.effect.Animation;
 import com.hieu.effect.CacheDataLoader;
-// import static com.hieu.gameobject.ParticularObject.LEFT_DIR;
-// import static com.hieu.gameobject.ParticularObject.NOBEHURT;
-// import java.applet.AudioClip;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -34,8 +31,6 @@ public class RobotR extends ParticularObject {
         
         setSpeedX(1);
         setSpeedY(1);
-        
-        // shooting = CacheDataLoader.getInstance().getSound("robotRshooting");
     }
 
     @Override
@@ -103,7 +98,6 @@ public class RobotR extends ParticularObject {
                 }
             }
         }
-        //drawBoundForCollisionWithEnemy(g2);
     }
     
 }

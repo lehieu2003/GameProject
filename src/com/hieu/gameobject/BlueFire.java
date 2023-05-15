@@ -46,7 +46,6 @@ public class BlueFire extends Bullet{
             backBulletAnim.Update(System.nanoTime());
             backBulletAnim.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
         }
-        //drawBoundForCollisionWithEnemy(g2);
     }
 
     @Override

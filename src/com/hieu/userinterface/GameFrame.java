@@ -30,7 +30,7 @@ public class GameFrame extends JFrame {
         addKeyListener(gamePanel);
         add(gamePanel);
 
-        // this.addKeyListener(gamePanel);
+        this.addKeyListener(gamePanel);
     }
     public void startGame(){
         gamePanel.startGame();
