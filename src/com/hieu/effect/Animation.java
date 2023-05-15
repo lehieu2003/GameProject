@@ -160,7 +160,7 @@ public class Animation {
             tx.translate(-image.getWidth(), 0);
 
             AffineTransformOp op = new AffineTransformOp(tx,
-                    AffineTransformOp.TYPE_BILINEAR);
+            AffineTransformOp.TYPE_BILINEAR);
             image = op.filter(image, null);
 
             frameImages.get(i).setImage(image);

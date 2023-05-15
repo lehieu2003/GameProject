@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
     State gameState;
-    private Thread gameThread;
-    private boolean isRunning;
-    private InputManager inputManager;
+    Thread gameThread;
+    public boolean isRunning = true;
+    InputManager inputManager;
 
     public GamePanel() {
         gameState = new GameWorldState(this);
@@ -26,7 +26,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         gameThread.start();
     }
     
-    int a = 0;
     @Override
     public void run() {
         long previousTime = System.nanoTime();
