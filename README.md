@@ -9,11 +9,30 @@ In the game, Megaman will proceed to control his character through the levels, d
 ![App Screenshot](https://cdn.discordapp.com/attachments/745580405088059442/1107705732389933146/Screenshot_2023-05-15_230713.png)
 
 
-## Skills
+## Control
+
+Mega Man is controlled using the keyboard. The default controls are:
+
+- Arrow keys to move
+- space key to jump
+- A key to fire
+
+## Installation
+
+To play Mega Man, clone game from github.\
+
+
+## System Requirements:
+Mega Man is a lightweight game that should run on most modern systems. The minimum requirements are:
+
+- Windows 7 or later
+- Intel Core i3 or equivalent processor
+- 2GB RAM
+- 500MB of free disk space
+## AcKnowlegements
 
  - [Database Cache](https://viblo.asia/p/in-memory-cache-la-gi-LzD5dLro5jY)
  - [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 
 
