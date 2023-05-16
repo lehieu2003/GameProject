@@ -33,7 +33,7 @@ Mega Man is a lightweight game that should run on most modern systems. The minim
 
  - [Database Cache](https://viblo.asia/p/in-memory-cache-la-gi-LzD5dLro5jY)
  - [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html)
-
+ - [Singleton Pattern](https://www.oracle.com/technical-resources/articles/java/singleton.html)
 
 
 
