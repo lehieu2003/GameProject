@@ -42,6 +42,29 @@ Mega Man is a lightweight game that should run on most modern systems. The minim
 
 [![MIT License](https://banner2.cleanpng.com/20180805/iot/kisspng-logo-java-runtime-environment-programming-language-java-util-concurrentmodificationexception-%C3%96mer-5b6766ab2d98b8.1809687115335031471868.jpg)](https://choosealicense.com/licenses/mit/)
 
+## Run Locally
+
+To get started, open a terminal and navigate to the place where you want to create your project with the command line cd:
+```bash
+cd ~/Desktop
+mkdir myproject
+cd myproject/
+```
+Then, we create a local git repository on your computer and clone file from global repository to local repository:
+```bash
+git init
+git clone https://github.com/lehieu2003/GameProject.git
+```
+Navigating to the directory where you saved the Java file that have main method and type the following command to compile the Java code:
+```bash
+javac "filename".java
+```
+If the compilation is successful, a new file with the same name as the Java file but with a .class extension will be created in the same directory.
+To run the Java code, type the following command:
+```bash
+java filename
+```
+If the execution is successful, you will see the output of the Java program.
 
 
 ## 🔗 Links github
