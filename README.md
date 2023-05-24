@@ -43,6 +43,10 @@ Mega Man is a lightweight game that should run on most modern systems. The minim
 [![MIT License](https://banner2.cleanpng.com/20180805/iot/kisspng-logo-java-runtime-environment-programming-language-java-util-concurrentmodificationexception-%C3%96mer-5b6766ab2d98b8.1809687115335031471868.jpg)](https://choosealicense.com/licenses/mit/)
 
 ## Run Locally
+Firstly, installing IDE such as intellij or Visual Studio Code as well as extension for java.
+
+https://code.visualstudio.com/
+https://www.jetbrains.com/idea/download/#section=windows
 
 To get started, open a terminal and navigate to the place where you want to create your project with the command line cd:
 ```bash
@@ -59,7 +63,7 @@ Navigating to the directory where you saved the Java file that have main method 
 ```bash
 javac "filename".java
 ```
-If the compilation is successful, a new file with the same name as the Java file but with a .class extension will be created in the same directory.
+If the compilation is successful, a new file with the same name as the Java file but with "filename".class extension will be created in the same directory.
 To run the Java code, type the following command:
 ```bash
 java filename
